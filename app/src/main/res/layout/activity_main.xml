@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="bomanthis.mathe.MainActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Addition and Subtraction"
+            android:id="@+id/lesson1"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson1"
+            android:onClick="onButton" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Multiplication and Division"
+            android:id="@+id/lesson2"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson2"
+            android:onClick="onButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Simple Algebra"
+            android:id="@+id/lesson3"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson3"
+            android:onClick="onButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Algebra 1"
+            android:id="@+id/lesson4"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson4"
+            android:onClick="onButton"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Algebra 2"
+            android:id="@+id/lesson5"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson5"
+            android:onClick="onButton"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trigonometry"
+            android:id="@+id/lesson6"
+            android:layout_gravity="center_horizontal"
+            android:tag="lesson6"
+            android:onClick="onButton"/>
+    </LinearLayout>
+</RelativeLayout>

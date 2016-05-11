@@ -1,3 +1,4 @@
+package bomanthis.mathe;
 //Problem Class. A class with a question and an answer.
 
 public class Problem{

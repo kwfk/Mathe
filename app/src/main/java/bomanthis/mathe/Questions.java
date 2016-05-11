@@ -1,3 +1,4 @@
+package bomanthis.mathe;
 //abstract class Questions
 
 public abstract class Questions{

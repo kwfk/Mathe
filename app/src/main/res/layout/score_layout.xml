@@ -2,14 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="bomanthis.mathe.ScoreActivity"
+    tools:context=".ScoreActivity"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="60sp"
-        android:text="Your Score"
+        android:text="@string/your_score_text_view"
         android:gravity="center|top"/>
     <TextView
         android:layout_width="match_parent"
@@ -17,22 +17,16 @@
         android:textSize="50sp"
         android:id="@+id/score"
         android:gravity="center|top"
-        android:text=""/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="50sp"
-        android:id="@+id/percent"
-        android:layout_gravity="center|top"
-        android:text=""/>
+        android:text="@string/score_text_view"/>
+
 
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/home"
-        android:textSize="20sp"
-        android:text="HOME"
+        android:textSize="30sp"
+        android:text="@string/home"
         android:onClick="onClick"/>
 
 </LinearLayout>

@@ -16,17 +16,17 @@ public class ScoreActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.score_layout);
         TextView s = (TextView) findViewById(R.id.score);
         String score = Lessons.correct + "/" + Lessons.problemNum;
-        String percent = "" + (int)((double)(Lessons.correct / Lessons.problemNum) * 100);
-        System.out.println(score +" "+percent);
+        //String percent = "" + (int)((double)(Lessons.correct / Lessons.problemNum) * 100)+"%";
+        //System.out.println(score +" "+percent);
         s.setText(score);
-        TextView p = (TextView) findViewById(R.id.percent);
-        p.setText(percent);
+        //TextView p = (TextView) findViewById(R.id.percent);
+        //p.setText(percent);
 
 
-        setContentView(R.layout.score_layout);
+        //setContentView(R.layout.score_layout);
     }
 
     public void onClick(View view) {

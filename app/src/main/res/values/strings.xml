@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Mathe</string>
+    <string name="home">HOME</string>
+    <string name="percent_text_view">%%</string>
+    <string name="score_text_view">1/10</string>
+    <string name="your_score_text_view">Your Score</string>
 </resources>

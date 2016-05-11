@@ -38,13 +38,13 @@ public class Problem{
 	public void createQuestion(){
 		Questions q;
 		switch (level) {
-			case 2: q = new LevelTwoQuestion();
+			case 1: q = new LevelTwoQuestion();
 				break;
-			case 3: q = new LevelThreeQuestion();
+			case 2: q = new LevelThreeQuestion();
 				break;
-			case 4: q = new LevelFourQuestion();
+			case 3: q = new LevelFourQuestion();
 				break;
-			//case 5: q = new LevelFiveQuestion();
+			//case 4: q = new LevelFiveQuestion();
 				//break;
 			default: q = new LevelOneQuestion();
 				break;
@@ -75,13 +75,13 @@ public class Problem{
 		level = l;
 		Questions q;
 		switch (level) {
-			case 2: q = new LevelTwoQuestion();
+			case 1: q = new LevelTwoQuestion();
 				break;
-			case 3: q = new LevelThreeQuestion();
+			case 2: q = new LevelThreeQuestion();
 				break;
-			case 4: q = new LevelFourQuestion();
+			case 3: q = new LevelFourQuestion();
 				break;
-			//case 5: q = new LevelFiveQuestion();
+			//case 4: q = new LevelFiveQuestion();
 				//break;
 			default: q = new LevelOneQuestion();
 				break;

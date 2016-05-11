@@ -106,4 +106,6 @@ public class Problem{
 	
 	public int getRightAnswerIndex(){ return index; }
 	
+	public boolean checkAnswer(int i){ return ( i == index); }
+	
 }

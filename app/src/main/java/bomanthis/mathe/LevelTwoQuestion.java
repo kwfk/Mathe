@@ -1,3 +1,4 @@
+package bomanthis.mathe;
 //Creats a level 2 question Multiplication/Division
 
 public class LevelTwoQuestion extends Questions{ 

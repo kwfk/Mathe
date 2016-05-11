@@ -1,3 +1,4 @@
+package bomanthis.mathe;
 //Creats a level 3 question Simple Algebra
 
 public class LevelThreeQuestion extends Questions{ 

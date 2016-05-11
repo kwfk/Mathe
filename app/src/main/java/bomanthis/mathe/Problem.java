@@ -100,7 +100,7 @@ public class Problem{
 	
 	public String getQuestion(){ return question; }
 	
-	public String[] getAnswers(){ return answers; }
+	public String getAnswers(int i){ return answers[i]; }
 	
 	public int getLevel(){ return level; }
 	

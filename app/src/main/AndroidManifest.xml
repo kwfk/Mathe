@@ -21,6 +21,12 @@
                 <action android:name="android.intent.action.VIEW"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ScoreActivity"
+            android:label="Score">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

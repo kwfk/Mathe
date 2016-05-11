@@ -24,12 +24,19 @@ public class LessonsFragment extends ListFragment {
 
     public void onListItemClick(ListView l, View v, int position, long id) {
         showDetails(position);
+        Lessons.index = position;
+        Lessons.problemNum = 0;
+        Lessons.correct = 0;
     }
-    void showDetails(int index){
+    public void showDetails(int index){
         selectedLesson = index;
         Intent intent = new Intent();
         intent.setClass(getActivity(), ProblemActivity.class);
         intent.putExtra("index", index);
         startActivity(intent);
+    }
+
+    public void next(boolean n){
+        if(n) showDetails(selectedLesson);
     }
 }

@@ -12,7 +12,7 @@ public class LevelFourQuestion extends Questions{
 	
 	public LevelFourQuestion(){
 		x = (int)(Math.random()*20);
-		y = (int)(Math.pow((double)(x / 2), 2.0));
+		y = (int)((Math.pow((double)x, 2.0)) / 2);
 		question = ("x^2 + " + x + "x + " + y);
 		if(x % 2 == 0)
 			answer = ("(x + " + (x / 2) + ")^2");

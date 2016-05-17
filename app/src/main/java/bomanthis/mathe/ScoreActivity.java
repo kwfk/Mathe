@@ -31,7 +31,7 @@ public class ScoreActivity extends Activity {
 
     public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("backHome", "ScoreActivity");
+        //intent.putExtra("backHome", "ScoreActivity");
         startActivity(intent);
     }
 }

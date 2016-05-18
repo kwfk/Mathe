@@ -35,10 +35,18 @@ public class LevelTwoQuestion extends Questions{
 	}
 	
 	public String getWrongAnswer(){
+		int n = (int)(Math.random()*20);
+		int d = (int)(Math.random()*20);
+		int r = (int)(Math.random()*y);
+		while((n == x) && (d == y) || (r == rem)){
+			n = (int)(Math.random()*20);
+			d = (int)(Math.random()*20);
+			r = (int)(Math.random()*y);
+		}
 		if(y % 2 == 0){
-			return("" + (int)(Math.random()*20)*(int)(Math.random()*20));
+			return("" + (n * d));
 		} else {
-			return("" + (x / y) + " R: " + ((int)(Math.random()*y)));
+			return("" + (x / y) + " R: " + r);
 		}
 	}
 	

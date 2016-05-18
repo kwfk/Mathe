@@ -39,7 +39,13 @@ public class LevelThreeQuestion extends Questions{
 	}
 	
 	public String getWrongAnswer(){
-		return ("" + (int)(Math.random()*30));
+		int n = (int)(Math.random()*30);
+		while(n == Math.abs(answer))
+			n = (int)(Math.random()*30);
+		if(answer >= 0)
+			return ("" + n);
+		else
+			return ("" + (n *(-1)));
 	}
 	
 }

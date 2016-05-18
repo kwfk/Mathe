@@ -11,8 +11,8 @@ public class LevelFourQuestion extends Questions{
 	//constructors
 	
 	public LevelFourQuestion(){
-		x = (int)(Math.random()*20);
-		y = (int)((Math.pow((double)x, 2.0)) / 2);
+		x = (int)((Math.random()*18) + 2);
+		y = (int)((Math.pow(x, 2.0))/4);
 		question = ("x^2 + " + x + "x + " + y);
 		if(x % 2 == 0)
 			answer = ("(x + " + (x / 2) + ")^2");
@@ -32,6 +32,8 @@ public class LevelFourQuestion extends Questions{
 	
 	public String getWrongAnswer(){
 		int a = (int)(Math.random()*15);
+		while(a == (x/2))
+			a = (int)(Math.random()*15);
 		if(x % 2 == 0)
 			return ("(x + " + a + ")^2");
 		else

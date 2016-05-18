@@ -44,8 +44,8 @@ public class Problem{
 				break;
 			case 3: q = new LevelFourQuestion();
 				break;
-			//case 4: q = new LevelFiveQuestion();
-				//break;
+			case 4: q = new LevelFiveQuestion();
+				break;
 			default: q = new LevelOneQuestion();
 				break;
 		}
@@ -81,8 +81,8 @@ public class Problem{
 				break;
 			case 3: q = new LevelFourQuestion();
 				break;
-			//case 4: q = new LevelFiveQuestion();
-				//break;
+			case 4: q = new LevelFiveQuestion();
+				break;
 			default: q = new LevelOneQuestion();
 				break;
 		}
@@ -106,6 +106,6 @@ public class Problem{
 	
 	public int getRightAnswerIndex(){ return index; }
 	
-	public boolean checkAnswer(int i){ return ( i==index); }
+	public boolean checkAnswer(int i){ return ( i == index); }
 	
 }

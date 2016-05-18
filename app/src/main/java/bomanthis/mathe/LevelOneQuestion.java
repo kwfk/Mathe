@@ -33,7 +33,13 @@ public class LevelOneQuestion extends Questions{
 	}
 	
 	public String getWrongAnswer(){
-		return ("" + (int)(Math.random()*150));
+		int n = (int)(Math.random()*150);
+		while (answer == n)
+			n = (int)(Math.random()*150);
+		if(answer >= 0)
+			return ("" + n);
+		else
+			return ("" + (n *(-1)));
 	}
 	
 }

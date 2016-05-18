@@ -46,7 +46,7 @@ public class LevelFiveQuestion extends Questions{
 	public String getWrongAnswer(){
 		int a = (int)(Math.random()*5);
 		int b = (int)(Math.random()*3);
-		while((a == choose1) && (b == chose2)){
+		while((a == choose1) && (b == choose2)){
 			a = (int)(Math.random()*5);
 		    b = (int)(Math.random()*3);
 		}

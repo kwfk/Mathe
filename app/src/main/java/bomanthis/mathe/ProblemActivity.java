@@ -19,7 +19,7 @@ public class ProblemActivity extends Activity {
     private Problem p;
     private RadioGroup answerChoices;
     private int[] ids = new int[]{R.id.answer0, R.id.answer1, R.id.answer2, R.id.answer3, R.id.answer4};
-    private int timeRemaining = 60000;
+    private int timeRemaining = 30000;
     private Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class ProblemActivity extends Activity {
                         stSec="0"+stSec;
                     }
                     timer.setText(minutes+":"+stSec);
-                    if(minutes<=0&&seconds<=30){
+                    if(minutes<=0&&seconds<=10){
                         if(seconds%2==0){
                             timer.setBackgroundColor(Color.alpha(255));
                             timer.setTextColor(Color.RED);
@@ -68,6 +68,9 @@ public class ProblemActivity extends Activity {
                         /*Intent intent = new Intent();
                         intent.setClass(this, ScoreActivity.class);
                         startActivity(intent);*/
+                    }
+                    else{
+                        timeUp();
                     }
                 }
             };
@@ -107,6 +110,12 @@ public class ProblemActivity extends Activity {
             }
         }
         return -1;
+    }
+
+    public final void timeUp(){
+        Intent intent = new Intent();
+        intent.setClass(this, ScoreActivity.class);
+        startActivity(intent);
     }
 
     public void onClick(View view){

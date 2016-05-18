@@ -1,3 +1,4 @@
+package bomanthis.mathe;
 //Creats a level 5 question. Trig
 
 public class LevelFiveQuestion extends Questions{

@@ -5,13 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.speech.tts.TextToSpeech;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class ScoreActivity extends Activity {
+public class ScoreActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

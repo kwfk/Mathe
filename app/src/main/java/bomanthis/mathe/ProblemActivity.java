@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
@@ -13,13 +14,13 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ProblemActivity extends Activity {
+public class ProblemActivity extends AppCompatActivity {
 
 
     private Problem p;
     private RadioGroup answerChoices;
     private int[] ids = new int[]{R.id.answer0, R.id.answer1, R.id.answer2, R.id.answer3, R.id.answer4};
-    private int timeRemaining = 30000;
+    private static int timeRemaining;
     private Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class ProblemActivity extends Activity {
             //problem.setArguments(getIntent().getExtras());
             //getFragmentManager().beginTransaction().add(android.R.id.content, problem).commit();
 
+            timeRemaining = 30000;
             final TextView timer = (TextView)findViewById(R.id.timer);
             int sec = timeRemaining/1000;
             int min = timeRemaining/60000;
@@ -53,6 +55,7 @@ public class ProblemActivity extends Activity {
                         stSec="0"+stSec;
                     }
                     timer.setText(minutes+":"+stSec);
+
                     if(minutes<=0&&seconds<=10){
                         if(seconds%2==0){
                             timer.setBackgroundColor(Color.alpha(255));
@@ -69,7 +72,7 @@ public class ProblemActivity extends Activity {
                         intent.setClass(this, ScoreActivity.class);
                         startActivity(intent);*/
                     }
-                    else{
+                    else if(timeRemaining==0){
                         timeUp();
                     }
                 }
@@ -79,6 +82,10 @@ public class ProblemActivity extends Activity {
             nextQuestion();
 
         }
+    }
+
+    public static void setTimeRemaining(int n){
+        timeRemaining=n;
     }
 
     public void nextQuestion(){

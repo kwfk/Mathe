@@ -31,7 +31,7 @@ public class LevelThreeQuestion extends Questions{
 	//accessor methods
 	
 	public String getQuestion(){
-		return (question + ". Find x.");
+		return (question + ". \n Find x.");
 	}
 	
 	public String getRightAnswer(){

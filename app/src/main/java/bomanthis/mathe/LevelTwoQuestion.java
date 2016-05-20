@@ -49,5 +49,4 @@ public class LevelTwoQuestion extends Questions{
 			return("" + (x / y) + " R: " + r);
 		}
 	}
-	
 }

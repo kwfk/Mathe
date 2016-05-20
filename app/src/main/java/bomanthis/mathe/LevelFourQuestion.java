@@ -23,7 +23,7 @@ public class LevelFourQuestion extends Questions{
 	//accessor methods
 	
 	public String getQuestion(){
-		return (question + ". Simplify.");
+		return (question + ". \n Simplify.");
 	}
 	
 	public String getRightAnswer(){

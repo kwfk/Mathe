@@ -15,6 +15,7 @@ public class LevelFiveQuestion extends Questions{
 	private String question;
 	private int choose1;
 	private int choose2;
+	int a = 0;
 	
 	//constructors
 	
@@ -44,13 +45,13 @@ public class LevelFiveQuestion extends Questions{
 	}
 	
 	public String getWrongAnswer(){
-		int a = (int)(Math.random()*5);
-		int b = (int)(Math.random()*3);
-		while((a == choose1) && (b == choose2)){
-			a = (int)(Math.random()*5);
-		    b = (int)(Math.random()*3);
+		while(a == choose1){
+			a++;
+			return y[choose2][a];
 		}
-		return y[b][a];
+		int temp = a;
+		a++;
+		return y[choose2][temp];
 	}
 	
 }

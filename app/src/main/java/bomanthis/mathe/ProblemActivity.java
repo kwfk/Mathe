@@ -112,7 +112,7 @@ public class ProblemActivity extends AppCompatActivity {
         p = new Problem(args.getInt("index", 0));
         //changes textView to display next question
         TextView question = (TextView)findViewById(R.id.question);
-        question.setText(Lessons.problemNum+") "+p.getQuestion());
+        question.setText((Lessons.problemNum+1)+") "+p.getQuestion());
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
         question.setPadding(padding, padding, padding, padding);
 

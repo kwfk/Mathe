@@ -67,44 +67,47 @@
         android:textColor="#FFFFFF" />
 
     <!--displays the table of the history-->
-    <TableLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/table"
-        android:layout_gravity="center">
-        <TableRow
+        android:scrollbars="none">
+        <TableLayout
             android:layout_width="match_parent"
-            android:background="#C5C5C5">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/historyDate"
-                android:textSize="18sp"
-                android:text="Date"
-                android:paddingLeft="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/historyLesson"
-                android:textSize="18sp"
-                android:text="Lesson"
-                android:paddingLeft="20dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/historyProb"
-                android:textSize="18sp"
-                android:text="Problems"
-                android:paddingLeft="20dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/historyScore"
-                android:textSize="18sp"
-                android:text="Score"
-                android:paddingLeft="15dp"/>
-        </TableRow>
-    </TableLayout>
+            android:layout_height="wrap_content"
+            android:id="@+id/table">
+            <TableRow
+                android:layout_width="match_parent"
+                android:background="#C5C5C5">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/historyDate"
+                    android:textSize="18sp"
+                    android:text="Date"
+                    android:paddingLeft="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/historyLesson"
+                    android:textSize="18sp"
+                    android:text="Lesson"
+                    android:paddingLeft="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/historyProb"
+                    android:textSize="18sp"
+                    android:text="Problems"
+                    android:paddingLeft="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/historyScore"
+                    android:textSize="18sp"
+                    android:text="Score"
+                    android:paddingLeft="15dp"/>
+            </TableRow>
+        </TableLayout>
 
-
+    </ScrollView>
 </LinearLayout>

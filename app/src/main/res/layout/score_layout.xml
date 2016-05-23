@@ -14,10 +14,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/solved"
+        android:gravity="center|top"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="50sp"
         android:id="@+id/score"
-        android:gravity="center|top"
-        android:text="@string/score_text_view"/>
+        android:gravity="center|top" />
 
 
 
@@ -27,6 +32,8 @@
         android:id="@+id/home"
         android:textSize="30sp"
         android:text="@string/home"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"/>
 
 </LinearLayout>

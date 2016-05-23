@@ -3,6 +3,7 @@ package bomanthis.mathe;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.util.Pools;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
@@ -18,24 +19,29 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ProblemActivity.setTimeRemaining(-10);
+        ProblemActivity.stop();
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    public boolean onCreateItemSelected(MenuItem item){
-        int id = item.getItemId();
-        switch(id){
-            case R.id.action_settings:
 
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.action_settings:
+                //intent = new Intent();
+                Intent setting = new Intent(this, SettingsActivity.class);
+                this.startActivity(setting);
                 return true;
             case R.id.action_help:
-
+                Intent help = new Intent(this, HelpActivity.class);
+                this.startActivity(help);
                 return true;
             default:
-                return super.onContextItemSelected(item);
+                return super.onOptionsItemSelected(item);
 
         }
     }

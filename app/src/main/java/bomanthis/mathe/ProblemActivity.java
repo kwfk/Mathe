@@ -1,12 +1,15 @@
 package bomanthis.mathe;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -20,7 +23,8 @@ public class ProblemActivity extends AppCompatActivity {
     private Problem p;
     private RadioGroup answerChoices;
     private int[] ids = new int[]{R.id.answer0, R.id.answer1, R.id.answer2, R.id.answer3, R.id.answer4};
-    private static int timeRemaining;
+    private int timeRemaining = 30000;
+    private static boolean stopTimer = false;
     private Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,9 @@ public class ProblemActivity extends AppCompatActivity {
             //ProblemFragment problem = new ProblemFragment();
             //problem.setArguments(getIntent().getExtras());
             //getFragmentManager().beginTransaction().add(android.R.id.content, problem).commit();
-
-            timeRemaining = 30000;
+            stopTimer=false;
+            SharedPreferences save = getSharedPreferences("timeLimit", Context.MODE_PRIVATE);
+            timeRemaining = save.getInt("time", 30000);
             final TextView timer = (TextView)findViewById(R.id.timer);
             int sec = timeRemaining/1000;
             int min = timeRemaining/60000;
@@ -59,14 +64,14 @@ public class ProblemActivity extends AppCompatActivity {
                     if(minutes<=0&&seconds<=10){
                         if(seconds%2==0){
                             timer.setBackgroundColor(Color.alpha(255));
-                            timer.setTextColor(Color.RED);
+                            timer.setTextColor(Color.rgb(244,67,54));
                         }
                         else{
-                            timer.setTextColor(Color.BLACK);
-                            timer.setBackgroundColor(Color.RED);
+                            timer.setTextColor(Color.WHITE);
+                            timer.setBackgroundColor(Color.rgb(244,67,54));
                         }
                     }
-                    if(timeRemaining>0){
+                    if(timeRemaining>0&&!stopTimer){
                         handler.postDelayed(this,1000);
                         /*Intent intent = new Intent();
                         intent.setClass(this, ScoreActivity.class);
@@ -84,8 +89,15 @@ public class ProblemActivity extends AppCompatActivity {
         }
     }
 
-    public static void setTimeRemaining(int n){
-        timeRemaining=n;
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+            stop();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+    public static void stop(){
+        stopTimer=true;
     }
 
     public void nextQuestion(){
@@ -120,6 +132,7 @@ public class ProblemActivity extends AppCompatActivity {
     }
 
     public final void timeUp(){
+        stop();
         Intent intent = new Intent();
         intent.setClass(this, ScoreActivity.class);
         startActivity(intent);

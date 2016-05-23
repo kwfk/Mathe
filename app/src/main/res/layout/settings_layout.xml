@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:id="@+id/setTimeLimitText"
+        android:text="Set Time Limit"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/setTimeLimit">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/limit1"
+            android:textSize="20sp"
+            android:text="Thirty Seconds"
+            android:onClick="onTimeClick"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/limit2"
+            android:textSize="20sp"
+            android:text="One Minute"
+            android:onClick="onTimeClick"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/limit3"
+            android:textSize="20sp"
+            android:text="Two Minutes"
+            android:onClick="onTimeClick"/>
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|top"
+        android:textSize="30sp"
+        android:id="@+id/clearHistoryText"
+        android:text="Clear History"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:textSize="20sp"
+        android:id="@+id/clearHistoryButton"
+        android:onClick="onClick"
+        android:gravity="center"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/table"
+        android:layout_gravity="center">
+        <TableRow
+            android:layout_width="match_parent"
+            android:background="#C5C5C5">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/historyDate"
+                android:textSize="18sp"
+                android:text="Date"
+                android:paddingLeft="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/historyLesson"
+                android:textSize="18sp"
+                android:text="Lesson"
+                android:paddingLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/historyProb"
+                android:textSize="18sp"
+                android:text="Problems"
+                android:paddingLeft="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/historyScore"
+                android:textSize="18sp"
+                android:text="Score"
+                android:paddingLeft="15dp"/>
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>

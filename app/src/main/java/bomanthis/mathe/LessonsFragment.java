@@ -3,9 +3,12 @@ package bomanthis.mathe;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class LessonsFragment extends ListFragment {
 
@@ -39,4 +42,7 @@ public class LessonsFragment extends ListFragment {
     public void next(boolean n){
         if(n) showDetails(selectedLesson);
     }
+
+
+
 }

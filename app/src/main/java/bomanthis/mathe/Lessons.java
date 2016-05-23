@@ -13,6 +13,7 @@ public class Lessons {
     public static int correct = 0;
     public static int problemNum = 0;
     public static int index = 0;
+    public static int timeLimit = 30000;
 
 
 

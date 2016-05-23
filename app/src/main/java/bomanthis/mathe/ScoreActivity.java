@@ -25,27 +25,28 @@ public class ScoreActivity extends AppCompatActivity {
     History his;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //creates the activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.score_layout);
+
+        //calls the textView for displaying the number of problems solved
         TextView solved = (TextView)findViewById(R.id.solved);
         solved.setText("Problems solved: "+Lessons.problemNum);
+        //calls the textView for displaying the score
         TextView score = (TextView) findViewById(R.id.score);
+        //calculates the percentage
         int percent = (int)((double)Lessons.correct/20*100);
-        //Toast.makeText(ScoreActivity.this, ""+percent, Toast.LENGTH_SHORT).show();
-
-        //percent = Math.round(percent)/100;
+        //sets string to display the complete score
         String fracScore = Lessons.correct+"/"+20;
         String detail = fracScore+"\n" + percent+"% \n";
-        //String percent = "" + (int)((double)(Lessons.correct / Lessons.problemNum) * 100)+"%";
-        //System.out.println(score +" "+percent);
         score.setText(detail);
-        //TextView p = (TextView) findViewById(R.id.percent);
-        //p.setText(percent);
+        //calls the history SQL database
         his = new History(this);
+        //sets the string for the date
         Calendar c = Calendar.getInstance();
-        //String time = ""+c.getTime();
         SimpleDateFormat df = new SimpleDateFormat("MM-dd-yy HH:mm");
         String date = df.format(c.getTime());
+        //sets the string for the lesson
         String lesson = "";
         switch(Lessons.index){
             case 0:
@@ -64,17 +65,17 @@ public class ScoreActivity extends AppCompatActivity {
                 lesson = "Trig";
                 break;
         }
+        //inserts the data for history into SQL database
         his.insertData(date, lesson, ""+Lessons.problemNum, fracScore);
-
-        //setContentView(R.layout.score_layout);
     }
 
+    //checks if button to back to home is clicked and starts activity if clicked
     public void onClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
-        //intent.putExtra("backHome", "ScoreActivity");
         startActivity(intent);
     }
 
+    //checks if back button was pressed and goes back to home if pressed
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             Intent intent = new Intent(this, MainActivity.class);

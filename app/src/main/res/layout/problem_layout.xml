@@ -6,6 +6,7 @@
     tools:context=".ProblemActivity"
     android:weightSum="1">
 
+    <!--displays the timer-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +14,7 @@
         android:textSize="40sp"
         android:id="@+id/timer"
         android:textColor="#000000"/>
+    <!--displays the problem question-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +22,7 @@
         android:textSize="50sp"
         android:id="@+id/question"/>
 
+    <!--displays radio buttons for the answer choices-->
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +58,7 @@
             android:textSize="30sp"/>
     </RadioGroup>
 
+    <!--button to go to next question-->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

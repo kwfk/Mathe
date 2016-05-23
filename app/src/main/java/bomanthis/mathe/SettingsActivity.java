@@ -22,15 +22,16 @@ import android.widget.Toast;
 public class SettingsActivity extends AppCompatActivity {
 
     History db;
+    //creates teh settings activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_layout);
 
         RadioGroup timeLimit = (RadioGroup) findViewById(R.id.setTimeLimit);
-        //RadioButton thirtySec = (RadioButton)findViewById(R.id.limit1);
-        //RadioButton oneMinute = (RadioButton)findViewById(R.id.limit2);
-        //RadioButton twoMinutes = (RadioButton)findViewById(R.id.limit3);
+
+        //SharedPreference that stores how much time the timer should have
         SharedPreferences save = getSharedPreferences("timeLimit", Context.MODE_PRIVATE);
+        //checks which time limit was selected before to display current setting
         switch(save.getInt("time", 30000)){
             case 30000:
                 timeLimit.check(R.id.limit1);
@@ -43,38 +44,21 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
 
-
+        //calls the clearHistory button
         Button clearHistory = (Button)findViewById(R.id.clearHistoryButton);
 
-        display();
-        /*StringBuffer buffer = new StringBuffer();
-        while(res.moveToNext()){
-            buffer.append("Date :"+res.getString(0)+"\n");
-            buffer.append("Problem Solved :"+res.getString(1)+"\n");
-            buffer.append("Score :"+res.getString(2)+"\n");
-        }*/
-
-        //showMessage("Data", buffer.toString());
-    }
-
-    /*public void showMessage(String title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
-    }*/
-
-    public void display(){
+        //calls TableLayout
         TableLayout table = (TableLayout)findViewById(R.id.table);
         db = new History(this);
         Cursor res = db.getAllData();
         res.moveToLast();
         if(res.getCount()!=0) {
             do{
+                //adds a table row for the new history data
                 TableRow tr = new TableRow(this);
                 tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
 
+                //adds history dates
                 TextView data1 = new TextView(this);
                 String date = res.getString(1);
                 data1.setText(date);
@@ -82,14 +66,15 @@ public class SettingsActivity extends AppCompatActivity {
                 data1.setTextSize(18);
                 tr.addView(data1);
 
+                //adds history lesson name
                 TextView data2 = new TextView(this);
-                Toast.makeText(SettingsActivity.this, res.getString(2), Toast.LENGTH_SHORT).show();
                 String lesson = res.getString(2);
                 data2.setText(lesson);
                 data2.setPadding(80, 0, 0, 0);
                 data2.setTextSize(18);
                 tr.addView(data2);
 
+                //adds history problem solved
                 TextView data3 = new TextView(this);
                 String prob = res.getString(3);
                 data3.setText(prob);
@@ -97,6 +82,7 @@ public class SettingsActivity extends AppCompatActivity {
                 data3.setTextSize(18);
                 tr.addView(data3);
 
+                //adds history score
                 TextView data4 = new TextView(this);
                 String score = res.getString(4);
                 data4.setText(score);
@@ -110,6 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
+    //checks if the radio buttons to change the time limit is changed and changes the time limit
     public void onTimeClick(View view) {
         boolean checked = ((RadioButton)view).isChecked();
         SharedPreferences save = getSharedPreferences("timeLimit", Context.MODE_PRIVATE);
@@ -119,26 +106,24 @@ public class SettingsActivity extends AppCompatActivity {
                 if(checked){
                     editor.putInt("time", 30000);
                     editor.apply();
-                    //Lessons.timeLimit=30000;
                 }
                 break;
             case R.id.limit2:
                 if(checked){
                     editor.putInt("time", 60000);
                     editor.apply();
-                    //Lessons.timeLimit=60000;
                 }
                 break;
             case R.id.limit3:
                 if(checked){
                     editor.putInt("time", 120000);
                     editor.apply();
-                    //Lessons.timeLimit=120000;
                 }
                 break;
         }
     }
 
+    //checks if button to clear history was clicked and clears history if clicked
     public void onClick(View view) {
         Integer deletedRows = db.clear();
         Intent intent = new Intent(this, this.getClass());

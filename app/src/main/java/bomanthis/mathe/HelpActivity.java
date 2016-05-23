@@ -11,9 +11,12 @@ import android.widget.TextView;
 
 public class HelpActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
+        //creates help activity
         super.onCreate(savedInstanceState);
+        //set layout
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
+        //set textView for slogan
         TextView help = new TextView(this);
         help.setTextSize(30);
         String text = "Change the way you practice math.";
@@ -21,11 +24,13 @@ public class HelpActivity extends AppCompatActivity{
         help.setTextColor(Color.rgb(255,255,255));
         help.setBackgroundColor(Color.rgb(129,199,132));
 
+        //set textView for instructions title
         TextView i = new TextView(this);
         i.setText("Instructions");
         i.setGravity(Gravity.CENTER);
         i.setTextSize(25);
 
+        //set TextView for instructions
         TextView instructions = new TextView(this);
         instructions.setText("\t\t\tMathe helps you practice math under time pressure. " +
                 "There are 5 different sections you can practice: " +
@@ -37,6 +42,7 @@ public class HelpActivity extends AppCompatActivity{
         instructions.setTextSize(18);
 
 
+        //add everything to layout and display
         layout.addView(help);
         layout.addView(i);
         layout.addView(instructions);

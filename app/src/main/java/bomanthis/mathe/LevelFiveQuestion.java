@@ -3,8 +3,8 @@ package bomanthis.mathe;
 
 public class LevelFiveQuestion extends Questions{
 	
-	private String pi = ("" + (char)65);
-	private String root = ("" + (char)66);
+	private String pi = ("Pi");
+	private String root = ("sqrt");
 	private String[] x = new String[]{"0", "" + pi + "/6", "" + pi + "/4", "" + pi + "/3", "" + pi + "/2"};
 	private String[][] y = new String[][] {
 											{"0", "1/2", "" + root + "2/2", "" + root + "3/2", "1"},

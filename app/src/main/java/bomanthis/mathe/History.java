@@ -16,21 +16,25 @@ public class History extends SQLiteOpenHelper {
     public static final String COL4 = "RESULT";
 
 
+    //constructor
     public History(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
+    //creates database
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT,DATE TEXT,LESSON TEXT,PROBLEMS_SOLVED TEXT,RESULT TEXT);");
     }
 
+    //upgrade not used
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
 
+    //inserts data given all the parameters
     public boolean insertData(String date, String lesson, String problem_solved, String score){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -45,12 +49,14 @@ public class History extends SQLiteOpenHelper {
             return true;
     }
 
+    //retrieves and returns all data in database
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "+TABLE_NAME, null);
         return res;
     }
 
+    //clears all of database
     public Integer clear(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, null, null);

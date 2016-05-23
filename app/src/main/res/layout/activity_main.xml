@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="bomanthis.mathe.MainActivity">
 
+    <!--displays the list fragment of all the lessons-->
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"

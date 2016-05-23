@@ -3,26 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-    <!--
+    <!--displays the menu button to go to settings-->
     <item
-        android:id="@+id/empty"
-        android:title="Options"
-        android:orderInCategory="101"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_action_overflow">
-        <menu>-->
-            <item
-                android:id="@+id/action_settings"
-                android:title="Settings"
-                android:icon="@drawable/ic_settings_gear"
-                app:showAsAction="never"/>
-            <item
-                android:id="@+id/action_help"
-                android:icon="@drawable/ic_help_outline"
-                android:title="Help"
-                app:showAsAction="never"/>
-      <!--  </menu>
-
-
-    </item>-->
+        android:id="@+id/action_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings_gear"
+        app:showAsAction="never"/>
+    <!-- displays the menu button to go to the help page-->
+    <item
+        android:id="@+id/action_help"
+        android:icon="@drawable/ic_help_outline"
+        android:title="Help"
+        app:showAsAction="never"/>
 </menu>

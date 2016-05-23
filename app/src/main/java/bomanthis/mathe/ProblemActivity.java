@@ -26,18 +26,19 @@ public class ProblemActivity extends AppCompatActivity {
     private int timeRemaining = 30000;
     private static boolean stopTimer = false;
     private Handler handler;
+    //creates the ProblemActivity class
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if(savedInstanceState==null){
+            //displays respective layout
             setContentView(R.layout.problem_layout);
-
-            //ProblemFragment problem = new ProblemFragment();
-            //problem.setArguments(getIntent().getExtras());
-            //getFragmentManager().beginTransaction().add(android.R.id.content, problem).commit();
+            //creates timer
             stopTimer=false;
+            //sets the time limit based on what was saved in the settings
             SharedPreferences save = getSharedPreferences("timeLimit", Context.MODE_PRIVATE);
             timeRemaining = save.getInt("time", 30000);
+            //displays the timer in mm:ss form
             final TextView timer = (TextView)findViewById(R.id.timer);
             int sec = timeRemaining/1000;
             int min = timeRemaining/60000;
@@ -47,11 +48,14 @@ public class ProblemActivity extends AppCompatActivity {
                 sSec = "0"+sSec;
             }
             timer.setText(min+":"+sSec);
+            //counts down the timer
             handler = new Handler();
             Runnable runnable = new Runnable() {
                 @Override
                 public void run() {
+                    //subtracts a second to timer
                     timeRemaining = timeRemaining-1000;
+                    //formats the timer
                     int seconds = (timeRemaining/1000);
                     int minutes = timeRemaining/60000;
                     seconds = seconds-minutes*60;
@@ -61,6 +65,7 @@ public class ProblemActivity extends AppCompatActivity {
                     }
                     timer.setText(minutes+":"+stSec);
 
+                    //timer flashes when there is 10 seconds less
                     if(minutes<=0&&seconds<=10){
                         if(seconds%2==0){
                             timer.setBackgroundColor(Color.alpha(255));
@@ -71,11 +76,9 @@ public class ProblemActivity extends AppCompatActivity {
                             timer.setBackgroundColor(Color.rgb(244,67,54));
                         }
                     }
+                    //counts a second
                     if(timeRemaining>0&&!stopTimer){
                         handler.postDelayed(this,1000);
-                        /*Intent intent = new Intent();
-                        intent.setClass(this, ScoreActivity.class);
-                        startActivity(intent);*/
                     }
                     else if(timeRemaining==0){
                         timeUp();
@@ -84,11 +87,13 @@ public class ProblemActivity extends AppCompatActivity {
             };
             handler.postDelayed(runnable, 1000);
 
+            //goes to the next question
             nextQuestion();
 
         }
     }
 
+    //checks if back button was pressed and goes to home if pressed
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_BACK)) {
             stop();
@@ -96,18 +101,22 @@ public class ProblemActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    //method to stop the timer from other classes
     public static void stop(){
         stopTimer=true;
     }
 
+    //calls next question
     public void nextQuestion(){
         Bundle args = getIntent().getExtras();
         p = new Problem(args.getInt("index", 0));
+        //changes textView to display next question
         TextView question = (TextView)findViewById(R.id.question);
-        question.setText(p.getQuestion());
+        question.setText(Lessons.problemNum+") "+p.getQuestion());
         int padding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources().getDisplayMetrics());
         question.setPadding(padding, padding, padding, padding);
 
+        //changes RadioButtons for next question
         answerChoices = (RadioGroup) findViewById(R.id.answerChoices);
         answerChoices.clearCheck();
         RadioButton[] answers = new RadioButton[5];
@@ -116,12 +125,14 @@ public class ProblemActivity extends AppCompatActivity {
             answers[i].setText(p.getAnswers(i));
         }
 
+        //changes the next button to submit for last question
         Button submit = (Button) findViewById(R.id.submit);
         if(Lessons.problemNum==19){
             submit.setText("SUBMIT");
         }
     }
 
+    //changes id of radio buttons for easy checking
     public int changeID(int id){
         for(int i=0; i<5; i++){
             if(id==ids[i]) {
@@ -131,6 +142,7 @@ public class ProblemActivity extends AppCompatActivity {
         return -1;
     }
 
+    //goes to scoreActivity when timer runs out
     public final void timeUp(){
         stop();
         Intent intent = new Intent();
@@ -138,27 +150,24 @@ public class ProblemActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //checks which radio button was selected after the next button was pressed
     public void onClick(View view){
         int selected = answerChoices.getCheckedRadioButtonId();
+        //adds how many problems was solved or correct
         if(p.checkAnswer(changeID(selected))) {
             Lessons.correct++;
             Lessons.problemNum++;
-            //Toast.makeText(ProblemActivity.this, ""+selected+"\n"+p.checkAnswer(selected), Toast.LENGTH_SHORT).show();
         }
         else{
             Lessons.problemNum++;
-            //Toast.makeText(ProblemActivity.this, ""+selected+"\n"+p.checkAnswer(selected), Toast.LENGTH_SHORT).show();
         }
+        //goes to ScoreActivity after 20 problems
         if(Lessons.problemNum>=20){
             Intent intent = new Intent();
             intent.setClass(this, ScoreActivity.class);
             startActivity(intent);
         }
         else {
-            /*Intent intent = new Intent();
-            intent.setClass(this, ProblemActivity.class);
-            intent.putExtra("index", Lessons.index);
-            startActivity(intent);*/
             nextQuestion();
         }
     }

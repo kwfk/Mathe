@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
+    <!--displays the title of changing the time limit-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,6 +13,7 @@
         android:id="@+id/setTimeLimitText"
         android:text="Set Time Limit"/>
 
+    <!--displays the choices of time limits using radio buttons-->
     <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,14 +45,16 @@
             android:onClick="onTimeClick"/>
     </RadioGroup>
 
+    <!-- displays the text title of the history-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left|top"
         android:textSize="30sp"
         android:id="@+id/clearHistoryText"
-        android:text="Clear History"/>
+        android:text="History"/>
 
+    <!--displays the button in clearing the history-->
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,6 +66,7 @@
         android:background="@color/colorAccent"
         android:textColor="#FFFFFF" />
 
+    <!--displays the table of the history-->
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

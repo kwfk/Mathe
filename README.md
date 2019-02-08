@@ -1,6 +1,6 @@
 # Mathe
 
-Mathe is an Android app aimed toward elementary school children to help them improve their mental math by having them quickly solve math problems against a timer.
+Mathe is an Android app aimed towards elementary school children to help them improve their mental math by having them quickly solve math problems against a timer.
 
 ## Technologies:
 * Android
